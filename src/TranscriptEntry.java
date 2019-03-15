@@ -73,9 +73,9 @@ public class TranscriptEntry extends Course {
         //  "\tINFS 510 Database Systems,   credits: 3, GRADE: A"
         //TODO
         if (getGrade().equalsIgnoreCase("N/A")) {
-            return super.toString() + ",   credits: " + getCredits() + ", GRADE: " + getGrade();
+            return super.toString() + ",   credits: " + getCredits();
         }
 
-        return super.toString() + ",   credits: " + getCredits();
+        return super.toString() + ",   credits: " + getCredits() + ", GRADE: " + getGrade();
     }
 }
