@@ -18,11 +18,11 @@ public class Registrar {
      * Attributes.
      */
     private Student[] students;
-    private int numStudents; // keeps track of the students array size
-    private Course[] courseCatalog;
-    private int numCourses;  // keeps track of the courseCatalog array size
-    private String semester;
-    private int year;
+    private int       numStudents; // keeps track of the students array size
+    private Course[]  courseCatalog;
+    private int       numCourses;  // keeps track of the courseCatalog array size
+    private String    semester;
+    private int       year;
 
     /**
      * Constructor.
@@ -131,19 +131,10 @@ public class Registrar {
         // return false.
         // otherwise register the student in the class and return true.
         // TODO
-
-        for (Course course : courseCatalog) {
-            if (course == null) {
-                break;
-            }
-            if (course.getCode().contains(courseCode)) {
-                if (findStudent(gnum) != null) {
-                    return findStudent(gnum).registerAClass(course, semester, year);
-
-                }
-            }
-        }
-
+        if (findCourse(courseCode) != null)
+            if (findStudent(gnum) != null)
+                return findStudent(gnum).registerAClass(findCourse(courseCode), semester, year);
+                
         return false;
     }
 
@@ -151,36 +142,21 @@ public class Registrar {
         // Find the student object in the students array using their gnum, if no student is found
         // return false.  otherwise drop the course for the student.
         // TODO
-        for (Course course : courseCatalog) {
-            if (course == null) {
-                break;
-            }
-            if (course.getCode().contains(courseCode)) {
-                if (findStudent(gnum) != null) {
-                    return findStudent(gnum).dropAClass(courseCode);
+        if (findCourse(courseCode) != null)
+            if (findStudent(gnum) != null)
+                return findStudent(gnum).dropAClass(courseCode);
 
-                }
-            }
-        }
         return false;
+
     }
 
     public boolean postGrade(long gnum, String courseCode, int score) {
         // Find the student object in the students array using their gnum, if no student is found
         // return false.  otherwise post a course grade for the student.
         // TODO
-        for (Course course : courseCatalog) {
-            if (course == null) {
-                break;
-            }
-            if (course.getCode().contains(courseCode)) {
-                if (findStudent(gnum) != null) {
-                    return findStudent(gnum).obtainAGrade(courseCode, score);
-
-                }
-            }
-        }
-        
+        if (findCourse(courseCode) != null)
+            if (findStudent(gnum) != null)
+                return findStudent(gnum).obtainAGrade(courseCode, score);
 
         return false;
     }
