@@ -203,7 +203,7 @@ public class Registrar {
         else if (dept.equalsIgnoreCase("INFS"))
             return "Information Systems";
         else if (dept.equalsIgnoreCase("IT"))
-            return "Information Tecchnoloy";
+            return "Information Technology";
         else if (dept.equalsIgnoreCase("MATH"))
             return "Mathematics";
         else if (dept.equalsIgnoreCase("PHYS"))

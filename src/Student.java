@@ -215,7 +215,7 @@ public abstract class Student {
             if (en == null) break;
             else if ((en.getSemester().equalsIgnoreCase(semester)) &&
                     (en.getYear() == year))
-                str += en.toString() + "\n";
+                str += "\t" +  en.toString() + "\n";
         }
         return str;
     }
