@@ -180,6 +180,7 @@ public class Registrar {
                 }
             }
         }
+        
 
         return false;
     }
@@ -219,13 +220,25 @@ public class Registrar {
 
     private Student findStudent(long gnum) {
         for (Student eachStudent : students) {
-            if (eachStudent == null) {
+            if (eachStudent == null)
                 break;
-            }
-            if (eachStudent.getGnum() == gnum) {
+
+            if (eachStudent.getGnum() == gnum)
                 return eachStudent;
-            }
+
         }
+        return null;
+    }
+
+    private Course findCourse(String courseCode) {
+        for (Course course : courseCatalog) {
+            if (course == null)
+                break;
+
+            if (course.getCode().contains(courseCode))
+                return course;
+        }
+
         return null;
     }
 
