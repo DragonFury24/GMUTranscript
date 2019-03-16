@@ -70,6 +70,7 @@ public class Registrar {
         for (int i = 0; i < courseCatalog.length; i++) {
             if (courseCatalog[i] == null) {
                 courseCatalog[i] = new Course(code, title, hours);
+                numCourses++;
                 return true;
             }
         }
