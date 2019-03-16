@@ -155,7 +155,7 @@ public abstract class Student {
         }
 
         //remove the course
-        //Please don't ever use this technique for shifting an array. I was being lazy and this is hella inefficient. 
+        //Please don't ever use this technique for shifting an array. I was being lazy and this is hella inefficient.
         if (indexToRemove == -1) {
             return false;
         }
