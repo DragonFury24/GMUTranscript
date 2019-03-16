@@ -152,7 +152,6 @@ public class Registrar {
                 return findStudent(gnum).dropAClass(courseCode);
 
         return false;
-
     }
 
     public boolean postGrade(long gnum, String courseCode, int score) {
