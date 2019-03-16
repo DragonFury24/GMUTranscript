@@ -52,7 +52,7 @@ public class Undergraduate extends Student {
 
             if (course.getDept().equals(getMajor())) {
                 if (course.isActive()) {
-                    majorCredits += 3;
+                    majorCredits += course.getCredits();
                     majorCourseCount += 1;
                 }
             }
