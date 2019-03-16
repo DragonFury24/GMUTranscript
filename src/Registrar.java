@@ -131,10 +131,11 @@ public class Registrar {
         // return false.
         // otherwise register the student in the class and return true.
         // TODO
+
         if (findCourse(courseCode) != null)
             if (findStudent(gnum) != null)
                 return findStudent(gnum).registerAClass(findCourse(courseCode), semester, year);
-                
+
         return false;
     }
 
@@ -142,6 +143,7 @@ public class Registrar {
         // Find the student object in the students array using their gnum, if no student is found
         // return false.  otherwise drop the course for the student.
         // TODO
+
         if (findCourse(courseCode) != null)
             if (findStudent(gnum) != null)
                 return findStudent(gnum).dropAClass(courseCode);
@@ -154,6 +156,7 @@ public class Registrar {
         // Find the student object in the students array using their gnum, if no student is found
         // return false.  otherwise post a course grade for the student.
         // TODO
+
         if (findCourse(courseCode) != null)
             if (findStudent(gnum) != null)
                 return findStudent(gnum).obtainAGrade(courseCode, score);

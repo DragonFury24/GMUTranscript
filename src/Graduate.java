@@ -48,17 +48,7 @@ public class Graduate extends Student {
     }
 
     protected boolean approvedForClass(Course c) {
-        if (c.getDept().equals(getMajor())){
-            for (TranscriptEntry course : transcripts) {
-                if (course == null) {
-                    break;
-                }
-            }
-
-            return true;
-        }
-
-        return false;
+        return c.getDept().equals(getMajor());
     }
 
     protected void setCourseGrade(TranscriptEntry entry, int score) {

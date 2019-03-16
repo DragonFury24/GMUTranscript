@@ -19,11 +19,11 @@ public abstract class Student {
      * that they are accessible to its sub-classes.
      */
     protected String first, last;
-    protected long gnum;
-    protected String major;
-    protected String degree;
-    protected TranscriptEntry[] transcripts; // an array of objects
-    protected final int PROGRAM; // a constant which will be initilized to 0 or 1
+    protected       long              gnum;
+    protected       String            major;
+    protected       String            degree;
+    protected       TranscriptEntry[] transcripts; // an array of objects
+    protected final int               PROGRAM; // a constant which will be initilized to 0 or 1
     // in the constructor method
 
     /**
@@ -46,6 +46,7 @@ public abstract class Student {
         this.gnum = gnum;
         this.major = major;
         this.degree = degree;
+
         if (level == 0) {
             transcripts = new TranscriptEntry[50];
         } else if (level == 1) {
@@ -112,32 +113,23 @@ public abstract class Student {
         // hint: a student would be currently enrolled if the .isActive() method returned true.
         //
 
-        for (TranscriptEntry course : transcripts) {
-            if (course == null) {
-                break;
-            } else if (course.getCode().contains(c.getCode())) {
-                if (course.isActive()) {
-                    return false;
-                } else {
-                    break;
-                }
-            }
-        }
+        TranscriptEntry course = findCourse(c.getCode());
+
+        if (course != null)
+            if (course.isActive())
+                return false;
 
         if (approvedForClass(c)) {
             for (int i = 0; i < transcripts.length; i++) {
                 if (transcripts[i] == null) {
                     transcripts[i] = new TranscriptEntry(c, semester, year);
-                    break;
+                    return true;
                 }
             }
-
-            return true;
         }
 
         return false;
     }
-
 
     public boolean dropAClass(String courseCode) {
         // We may only drop a student if he/she is currently enrolled (ie no grade posted yet).
@@ -171,7 +163,7 @@ public abstract class Student {
 
         ArrayList<TranscriptEntry> tempList = new ArrayList<>();
 
-        for (TranscriptEntry course: transcripts) {
+        for (TranscriptEntry course : transcripts) {
             if (course == null) {
                 continue;
             }
@@ -188,12 +180,12 @@ public abstract class Student {
         return true;
     }
 
-
     public boolean obtainAGrade(String courseCode, int score) {
         // this method will search the transcripts array to find a course and will
         // then assigne a letter grade for the student in that course.  if the course is not found
         // in the array, or if its a past course then return false (should overwrite a past course grade).
         //TODO
+
         for (TranscriptEntry course : transcripts) {
             if (course == null) {
                 break;
@@ -214,8 +206,8 @@ public abstract class Student {
         for (TranscriptEntry en : transcripts) {
             if (en == null) break;
             else if ((en.getSemester().equalsIgnoreCase(semester)) &&
-                    (en.getYear() == year))
-                str += "\t" +  en.toString() + "\n";
+                     (en.getYear() == year))
+                str += "\t" + en.toString() + "\n";
         }
         return str;
     }
@@ -246,6 +238,19 @@ public abstract class Student {
      * Private methods.
      * you may add as much helper methods as you need.
      */
+
+    private TranscriptEntry findCourse(String courseCode) {
+        for (TranscriptEntry course : transcripts) {
+            if (course == null)
+                break;
+
+            if (course.getCode().contains(courseCode))
+                return course;
+        }
+
+        return null;
+    }
+
 
     protected abstract boolean approvedForClass(Course c);
 
