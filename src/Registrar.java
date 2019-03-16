@@ -98,6 +98,7 @@ public class Registrar {
         for (int i = 0; i < students.length; i++) {
             if (students[i] == null) {
                 students[i] = new Undergraduate(fname, lname, gnum, major, degree, highSchool);
+                numStudents++;
                 return true;
             }
         }
@@ -117,6 +118,7 @@ public class Registrar {
         for (int i = 0; i < students.length; i++) {
             if (students[i] == null) {
                 students[i] = new Graduate(fname, lname, gnum, major, degree, uMajor, uInstit);
+                numStudents++;
                 return true;
             }
         }
