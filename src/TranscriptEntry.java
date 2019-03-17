@@ -72,7 +72,7 @@ public class TranscriptEntry extends Course {
         // return a string with the following format:
         //  "\tINFS 510 Database Systems,   credits: 3, GRADE: A"
         //TODO
-        if (getGrade().equalsIgnoreCase("N/A")) {
+        if (isActive()) {
             return "\t" + super.toString() + ",   credits: " + getCredits();
         }
 
