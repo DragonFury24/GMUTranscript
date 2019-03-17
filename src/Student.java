@@ -202,13 +202,14 @@ public abstract class Student {
         return false;
     }
 
+
     public String getClassList(String semester, int year) {
         String str = String.format(" %s %d\n", semester, year);
         for (TranscriptEntry en : transcripts) {
             if (en == null) break;
             else if ((en.getSemester().equalsIgnoreCase(semester)) &&
                      (en.getYear() == year))
-                str += "\t" + en.toString() + "\n";
+                str += en.toString() + "\n";
         }
         return str;
     }
