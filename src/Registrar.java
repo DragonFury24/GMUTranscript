@@ -8,8 +8,6 @@
  * @author CS211 GMU
  */
 
-import org.junit.Test;
-
 import java.util.Scanner;
 
 public class Registrar {
